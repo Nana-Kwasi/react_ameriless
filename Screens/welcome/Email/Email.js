@@ -11,10 +11,10 @@ const EmailConfirmationScreen = ({ navigation }) => {
     setLoading(true);
     // Simulating an email confirmation request
     setTimeout(() => {
-      setSuccessMessage('Email has been confirmed successfully');
+      setSuccessMessage('Confirmation message is been sent');
       setLoading(false);
-      navigation.navigate('Dashboard');
-    }, 2000); // Simulated 2 seconds delay for confirmation
+      navigation.navigate('Main');
+    }, 5000); // Simulated 2 seconds delay for confirmation
 
     // Implement your actual email confirmation logic here using the 'email' state
   };
@@ -23,8 +23,8 @@ const EmailConfirmationScreen = ({ navigation }) => {
     <KeyboardAvoidingView style={styles.container} behavior="padding">
        <View style={styles.header}>
       <Image source={require('../../../assets/P5.jpg')} style={styles.logo} />
-      <Text style={styles.logoText}>RESET YOUR PASSWORD</Text>
-      <Text style={styles.title}>Enter your new password to access your account</Text>
+      <Text style={styles.logoText}>CONFIRM YOUR EMAIL</Text>
+      <Text style={styles.title}>Enter your email to confirm your account</Text>
     </View>
       <View style={styles.inputContainer}>
         <FontAwesome name="envelope" size={20} color="black" style={styles.inputIcon} />

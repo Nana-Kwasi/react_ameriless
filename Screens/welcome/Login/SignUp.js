@@ -23,6 +23,7 @@ const SignUpScreen = ({ navigation }) => {
   const [gender, setGender] = useState('');
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [loading, setLoading] = useState(false); // State to manage loading state
 
 
@@ -121,59 +122,65 @@ const SignUpScreen = ({ navigation }) => {
     <FontAwesome name="calendar" size={24} color="black" />
   </View>
   <TextInput
-    style={styles.input}
-    placeholder="Date of Birth"
-    placeholderTextColor="black"
-    onChangeText={(text) => setDateOfBirth(text)}
-  />
-</View>
+          style={styles.input}
+          placeholder="Date of Birth"
+          placeholderTextColor="black"
+          keyboardType="numeric" // Set the keyboard type to numeric for the date of birth
+          onChangeText={(text) => setDateOfBirth(text)}
+        />
+      </View>
 
-    <View style={styles.inputContainer}>
-      <View style={styles.inputIcon}>
-        <FontAwesome name="envelope" size={24} color="black" />
+      <View style={styles.inputContainer}>
+        <View style={styles.inputIcon}>
+          <FontAwesome name="envelope" size={24} color="black" />
+        </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          placeholderTextColor="black"
+          keyboardType="email-address" // Set the keyboard type to email address for the email input
+          onChangeText={(text) => setEmail(text)}
+        />
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="black"
-        onChangeText={(text) => setEmail(text)}
-      />
-    </View>
-    <View style={styles.inputContainer}>
-      <View style={styles.inputIcon}>
-        <FontAwesome name="phone" size={24} color="black" />
+
+      <View style={styles.inputContainer}>
+        <View style={styles.inputIcon}>
+          <FontAwesome name="phone" size={24} color="black" />
+        </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Phone number"
+          placeholderTextColor="black"
+          keyboardType="phone-pad" // Set the keyboard type to phone pad for the phone number input
+          onChangeText={(text) => setPhoneNumber(text)}
+        />
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Phone number"
-        placeholderTextColor="black"
-        onChangeText={(text) => setEmail(text)}
-      />
-    </View>
-    <View style={styles.inputContainer}>
-      <View style={styles.inputIcon}>
-        <FontAwesome name="lock" size={24} color="black" />
+
+      <View style={styles.inputContainer}>
+        <View style={styles.inputIcon}>
+          <FontAwesome name="lock" size={24} color="black" />
+        </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          placeholderTextColor="black"
+          onChangeText={(text) => setPassword(text)}
+        />
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        placeholderTextColor="black"
-        onChangeText={(text) => setPassword(text)}
-      />
-    </View>
-    <View style={styles.inputContainer}>
-      <View style={styles.inputIcon}>
-        <FontAwesome name="lock" size={24} color="black" />
+
+      <View style={styles.inputContainer}>
+        <View style={styles.inputIcon}>
+          <FontAwesome name="lock" size={24} color="black" />
+        </View>
+        <TextInput
+          style={styles.input}
+          placeholder="Repeat Password"
+          secureTextEntry
+          placeholderTextColor="black"
+          onChangeText={(text) => setRepeatPassword(text)}
+        />
       </View>
-      <TextInput
-        style={styles.input}
-        placeholder="Repeat Password"
-        secureTextEntry
-        placeholderTextColor="black"
-        onChangeText={(text) => setRepeatPassword(text)}
-      />
-    </View>
     {passwordsMatch ? null : (
       <Text style={styles.errorText}>Passwords do not match</Text>
     )}

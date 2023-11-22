@@ -16,7 +16,7 @@ const LoginScreen = ({ navigation }) => {
     } else {
       // Implement your actual login logic here
       // Assuming login is successful, navigate to the DashboardScreen
-      navigation.navigate('Dashboard'); // Navigate to Dashboard
+      navigation.navigate('Main'); // Navigate to Dashboard
     }
   };
 

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, ScrollView, TouchableOpacity } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { requestForegroundPermissionsAsync, getLastKnownPositionAsync } from 'expo-location';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const BookingScreen = ({ route }) => {
   const [region, setRegion] = useState(null);
@@ -10,7 +13,11 @@ const BookingScreen = ({ route }) => {
   const [serviceProviders, setServiceProviders] = useState(null);
   const [showSearchButton, setShowSearchButton] = useState(false); // New sta
   const MAX_SEARCH_TIME = 10000; 
+  const navigation = useNavigation();
 
+  const goBack = () => {
+    navigation.goBack();
+  };
 
 
 
@@ -91,6 +98,9 @@ useEffect(() => {
   return (
     <ScrollView>
       <View style={styles.container}>
+      <TouchableOpacity onPress={goBack}>
+        <Text style={styles.Back}>{'<-- Back'}</Text>
+      </TouchableOpacity>
         <Text style={styles.title}>Nearby Service Providers</Text>
         <Text style={styles.serviceName}>{route.params.service.name}</Text>
         <Text style={styles.serviceDescription}>{route.params.service.description}</Text>
@@ -131,6 +141,7 @@ useEffect(() => {
             </TouchableOpacity>
           </View>
         )}
+        
       </View>
     </ScrollView>
   );
@@ -191,15 +202,21 @@ const styles = StyleSheet.create({
   searchAgainText: {
     fontSize: 20,
     color: 'white',
-    marginBottom: 5,
+    marginTop: 20,
+    width:'70%'
     
   },
   searchAgainText1: {
     marginTop: 10,
-    borderRadius: 20, // Set the border radius to make it round
-    width: "60%", 
-    backgroundColor: 'blue', // Add a background color
+    borderRadius: 20, 
+    width: "40%",
+    backgroundColor: 'blue', 
   },
+  Back:{
+    marginRight:280,
+    fontSize: 18,color: 'blue',
+    marginTop:70
+  }
 });
 
 export default BookingScreen;

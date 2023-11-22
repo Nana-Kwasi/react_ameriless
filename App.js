@@ -11,8 +11,19 @@ import EmailConfirmationScreen from './Screens/welcome/Email/Email';
 import FavouriteScreen from './Screens/welcome/Favourate/Favourate';
 import HistoryScreen from './Screens/welcome/History/History';
 import SettingsScreen from './Screens/welcome/Settings/Settings';
-import BottomTabNavigator from './Screens/BottomTab/BottomTabs';
 import HomeScreen from './Screens/Home/Home';
+import ProfileScreen from './Screens/welcome/Profile/Profile';
+import AgricScreen from './Screens/Agric/Agric';
+import AutomobileScreen from './Screens/Auto/Automobile';
+import EducationScreen from './Screens/Education/Education';
+import MainScreen from './Screens/welcome/Dashboard/component/MainScreen';
+
+
+
+
+
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -91,17 +102,45 @@ export default function App() {
             headerShown: false,
           }}
         />
-
+       
         <Stack.Screen
-          name="BottomTab"
-          component={BottomTabNavigator}
+          name="Home"
+          component={HomeScreen}
           options={{
             headerShown: false,
           }}
         />
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+         <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+         <Stack.Screen
+          name="Education"
+          component={EducationScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+         <Stack.Screen
+          name="Automobile"
+          component={AutomobileScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+         <Stack.Screen
+          name="Agric"
+          component={AgricScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+         <Stack.Screen
+          name="Main"
+          component={MainScreen}
           options={{
             headerShown: false,
           }}

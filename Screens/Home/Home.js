@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text,StyleSheet } from 'react-native';
-import BottomTabNavigator from '../BottomTab/BottomTabs';
+
 
 
 
@@ -10,9 +10,7 @@ const HomeScreen = () => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Home Screen</Text>
       <Text style={{ marginTop: 20 }}>Welcome to the Home screen!</Text>
-      <View style={styles.bottomTabContainer}>
-        <BottomTabNavigator />
-      </View>
+      
     </View>
   );
 };
